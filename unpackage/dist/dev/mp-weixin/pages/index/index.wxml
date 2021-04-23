@@ -1,0 +1,1 @@
+<view class="content"><image class="logo" src="/static/logo.png"></image><view class="text-area"><text class="title">{{title}}</text></view><u-button bind:click="__e" vue-id="8dd740cc-1" data-event-opts="{{[['^click',[['goToTest']]]]}}" bind:__l="__l" vue-slots="{{['default']}}">{{buttonName}}</u-button></view>
