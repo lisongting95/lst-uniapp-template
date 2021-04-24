@@ -1,11 +1,11 @@
 import Vue from 'vue'
 
-//vuex
-import Vuex from 'vuex'
-Vue.use(Vuex)
-
 //主APP
 import App from './App'
+
+//vuex
+import store from './libs/store/index.js'
+Vue.prototype.$store = store;
 
 //路由
 import {router,RouterMount} from './libs/router/router.js'

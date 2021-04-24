@@ -19,10 +19,13 @@
 		onLoad() {
 			this.buttonName = this.$u.config.version
 			this.$u.toast('toast')
+			console.log("store -->",this.$store.state.vuex_config)
 		},
 		methods: {
 			goToTest(){
-				this.$Router.push({name:"test"})
+				this.$store.commit('setVuex',{name:'vuex_config',value:'321'})
+				console.log("store -->",this.$store.state.vuex_config)
+				// this.$Router.push({name:"test"})
 			}
 		}
 	}
