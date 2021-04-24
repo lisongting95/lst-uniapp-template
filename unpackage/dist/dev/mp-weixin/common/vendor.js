@@ -8026,9 +8026,12 @@ function normalizeComponent (
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 12));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 12));
 
-_vue.default.use(_vuex.default);
+
+
+
+var _cart = _interopRequireDefault(__webpack_require__(/*! ./modules/cart.js */ 75));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}_vue.default.use(_vuex.default); //分块
 
 
 //持久化
@@ -8044,8 +8047,8 @@ var saveStateKeys = [
 
 var store = new _vuex.default.Store({
   //分块
-  modules: {},
-
+  modules: {
+    cart: _cart.default },
 
 
   //state
@@ -12025,6 +12028,188 @@ Login = /*#__PURE__*/function () {
 
 
 Login;exports.default = _default;
+
+/***/ }),
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */
+/*!**************************************************************!*\
+  !*** E:/hua5-single/lst-template/libs/store/modules/cart.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var _index = _interopRequireDefault(__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '@/common/request/index'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())));
+var _store = _interopRequireDefault(__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '@/common/store'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 购物车模块
+
+var state = {
+  cartList: [],
+  allSelected: false,
+  cartNum: uni.getStorageSync('cartNum') ? uni.getStorageSync('cartNum') : 0 //购物车,涉及到刷新数据丢失，所以存了本地,
+};
+
+var actions = {
+  // 购物车数据（查）
+  getCartList: function getCartList(_ref)
+
+
+  {var commit = _ref.commit,state = _ref.state;
+    return new Promise(function (resolve, reject) {
+      (0, _index.default)('cart.index').then(function (res) {
+        var cartData = res.data;
+        cartData.map(function (item) {
+          item.checked = true;
+        });
+        uni.setStorageSync('cartNum', cartData.length);
+        commit('CART_LIST', cartData);
+        commit('checkCartList');
+        commit('CART_NUM');
+      }).catch(function (e) {
+        reject(e);
+      });
+    });
+  },
+  // 添加到购物车（增）
+  addCartGoods: function addCartGoods(_ref2,
+
+  data) {var commit = _ref2.commit;
+    return new Promise(function (resolve, reject) {
+      (0, _index.default)('cart.add', {
+        goods_list: data.list,
+        from: data.from }).
+      then(function (res) {
+        _store.default.dispatch('getCartList');
+        resolve(res);
+      }).catch(function (e) {
+        reject(e);
+      });
+    });
+  },
+  // 修改购物车商品数量（改）|| 删除购物车商品（删）
+  changeCartList: function changeCartList(_ref3,
+
+
+
+  param) {var commit = _ref3.commit,state = _ref3.state,dispatch = _ref3.dispatch;
+    return new Promise(function (resolve, reject) {
+      (0, _index.default)('cart.edit', {
+        cart_list: param.ids,
+        value: param.goodsNum || null,
+        act: param.art }).
+      then(function (res) {
+        if (param.art === 'delete' && res.code === 1) {
+          _store.default.dispatch('getCartList');
+        }
+        resolve(res);
+        commit('checkCartList');
+      }).catch(function (e) {
+        reject(e);
+      });
+    });
+  } };
+
+
+var mutations = {
+
+  // cart数量角标更新。
+  commitCartNum: function commitCartNum(state, data) {
+    var cartNum = uni.getStorageSync('cartNum') ? uni.getStorageSync('cartNum') : 0;
+    state.cartNum = cartNum;
+  } };
+
+
+
+var getters = {
+  // 购物车数量和总价
+  totalCount: function totalCount(state) {
+    var totalNum = 0;
+    var totalPrice = 0;
+    state.cartList.filter(function (item) {
+      if (item.checked) {
+        totalNum += 1;
+        totalPrice += item.goods_num * item.sku_price.price;
+      }
+    });
+    return {
+      totalNum: totalNum,
+      totalPrice: totalPrice };
+
+  },
+  // 外卖购物车数量和总价
+  takeoutTotalCount: function takeoutTotalCount(state) {
+    var totalNum = 0;
+    var totalPrice = 0;
+    state.cartList.forEach(function (item) {
+      totalNum += item.goods_num;
+      totalPrice += item.goods_num * item.sku_price.price;
+    });
+    return {
+      totalNum: totalNum,
+      totalPrice: totalPrice };
+
+
+  },
+  // 是否选择了商品
+  isSel: function isSel(state) {
+    var isSel = false;
+    state.cartList.map(function (item) {
+      if (item.checked) {
+        isSel = true;
+      }
+    });
+    return isSel;
+  },
+
+  // 活动商品唯一选中可以结算
+  isActivityPay: function isActivityPay() {
+    var num = 0;
+    var activityNum = 0;
+    state.cartList.map(function (item) {
+      if (item.checked) {
+        num += 1;
+        if (item.cart_type === 'activity') {
+          activityNum += 1;
+        }
+      }
+    });
+    if (num === 1 && activityNum === 1 || activityNum === 0) {
+      return true;
+    }
+    return false;
+  } };var _default =
+
+
+
+{
+  state: state,
+  mutations: mutations,
+  actions: actions,
+  getters: getters };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 ]]);
