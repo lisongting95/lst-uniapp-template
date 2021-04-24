@@ -1,13 +1,14 @@
 {
 	"private": true,
-	"description":"lst-template",
-	"license":"unlicensed",
+	"description": "lst-template",
+	"license": "unlicensed",
 	"dependencies": {
 		"dev": {
 			"mp-weixin": "cross-env NODE_ENV=development UNI_PLATFORM=mp-weixin vue-cli-service uni-build --watch --minimize"
 		},
 		"uni-read-pages": "^1.0.5",
 		"uni-simple-router": "^2.0.2",
-		"uview-ui": "^1.8.4"
+		"uview-ui": "^1.8.4",
+		"vuex": "^3.6.2"
 	}
 }

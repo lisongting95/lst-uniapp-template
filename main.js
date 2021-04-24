@@ -1,4 +1,10 @@
 import Vue from 'vue'
+
+//vuex
+import Vuex from 'vuex'
+Vue.use(Vuex)
+
+//主APP
 import App from './App'
 
 //路由
