@@ -5,6 +5,8 @@
 			<text class="title">{{title}}</text>
 		</view>
 		<u-button @click="goToTest">{{buttonName}}</u-button>
+		<view style="height: 10rpx;"></view>
+		<u-button  @click="onClick">测试按钮</u-button>
 	</view>
 </template>
 
@@ -26,6 +28,12 @@
 				this.$store.commit('setVuex',{name:'vuex_config',value:'321'})
 				console.log("store -->",this.$store.state.vuex_config)
 				// this.$Router.push({name:"test"})
+			},
+			onClick(){
+				this.$store.commit('commitCartNum',1111)
+				console.log("cartNum -->",this.$store.state.cart.cartNum)
+				console.log("getters -->",this.$store.getters.testGetterYo)
+				this.$store.dispatch('testAction')
 			}
 		}
 	}

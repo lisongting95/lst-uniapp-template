@@ -163,6 +163,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
 var _default =
 {
   data: function data() {
@@ -181,6 +183,12 @@ var _default =
       this.$store.commit('setVuex', { name: 'vuex_config', value: '321' });
       console.log("store -->", this.$store.state.vuex_config);
       // this.$Router.push({name:"test"})
+    },
+    onClick: function onClick() {
+      this.$store.commit('commitCartNum', 1111);
+      console.log("cartNum -->", this.$store.state.cart.cartNum);
+      console.log("getters -->", this.$store.getters.testGetterYo);
+      this.$store.dispatch('testAction');
     } } };exports.default = _default;
 
 /***/ }),

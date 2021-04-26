@@ -1,5 +1,10 @@
-// 购物车模块
+import Vue from 'vue'
 import store from '../index.js'
+import uView from "uview-ui"
+Vue.use(uView)
+
+const $u = Vue.prototype.$u
+
 
 const state = {
 	cartList: [],
@@ -8,6 +13,17 @@ const state = {
 }
 
 const actions = {
+	
+	// 测试
+	async testAction({
+		commit,
+		state
+	}) {
+		console.log('$u -->',$u)
+		let res = await $u.m.config.getConfig()
+		console.log("action res -->",res)
+	},
+	
 	// 购物车数据（查）
 	getCartList({
 		commit,
@@ -72,13 +88,19 @@ const mutations = {
 
 	// cart数量角标更新。
 	commitCartNum(state, data) {
-		let cartNum = uni.getStorageSync('cartNum') ? uni.getStorageSync('cartNum') : 0;
+		console.log("cart data --->",data)
+		let cartNum = uni.getStorageSync('cartNum') ? uni.getStorageSync('cartNum') : data;
 		state.cartNum = cartNum
 	},
 	
 }
 
 const getters = {
+	
+	testGetterYo: state => {
+		return state.cartNum
+	},
+	
 	// 购物车数量和总价
 	totalCount: state => {
 		let totalNum = 0;

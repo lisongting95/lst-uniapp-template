@@ -4,6 +4,7 @@ import Login from '@/model/login/Login.js'
 
 
 const install = (Vue) => {
+	console.log("$u -->",Vue.prototype.$u)
 	const $u = Vue.prototype.$u
 	$u.m = {
 		token:new Token($u),

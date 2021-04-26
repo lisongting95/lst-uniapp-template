@@ -11,8 +11,8 @@ class Config {
 	 getConfig(params = {}){
 		 return new Promise((resolve, reject) => {
 			 this.$u.get('/api_configs', params).then(res => {
-				this.$u.setVuex('vuex_config',res.value);
-				resolve()
+				console.log("config res -->",res)
+				resolve(res)
 			 }).catch(err => {
 				reject(err)
 			})

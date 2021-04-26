@@ -4,7 +4,8 @@
 */
 
 export default {
-	requestUrl             : 'https://sapi.hua5.com/v1',  //生产环境请求地址前缀 
+	requestUrl         	   : 'http://seller_test.hua5.com/v1',  //测试环境请求地址前缀
+	// requestUrl             : 'https://sapi.hua5.com/v1',  //生产环境请求地址前缀 
 	header          	   : {'content-type': 'application/json;charset=UTF-8'}, //默认请求头
 	headerKeyField	       : 'authentication',           //请求头要带到后端验证的字段名称
 	vuexTokenField         : 'vuex_token',               //Vuex里面保存token的对象名称，必须配置
