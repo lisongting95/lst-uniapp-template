@@ -10611,6 +10611,245 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 /***/ }),
 /* 43 */
+/*!**************************************************!*\
+  !*** E:/hua5-single/lst-template/model/model.js ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _Token = _interopRequireDefault(__webpack_require__(/*! @/model/token/Token.js */ 44));
+var _Config = _interopRequireDefault(__webpack_require__(/*! @/model/config/Config.js */ 46));
+var _Login = _interopRequireDefault(__webpack_require__(/*! @/model/login/Login.js */ 47));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+
+var install = function install(Vue) {
+  console.log("$u -->", Vue.prototype.$u);
+  var $u = Vue.prototype.$u;
+  $u.m = {
+    token: new _Token.default($u),
+    config: new _Config.default($u),
+    login: new _Login.default($u) };
+
+};var _default =
+
+{
+  install: install };exports.default = _default;
+
+/***/ }),
+/* 44 */
+/*!********************************************************!*\
+  !*** E:/hua5-single/lst-template/model/token/Token.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _api = _interopRequireDefault(__webpack_require__(/*! @/libs/config/api */ 45));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var
+Token = /*#__PURE__*/function () {
+
+  function Token($u) {_classCallCheck(this, Token);_defineProperty(this, "$u", void 0);
+    this.$u = $u;
+  }
+
+  /*
+    获取Token
+    @ params  
+    appid:'hua5',
+    rand:665434,
+    timestamp:1584686739,
+    sign:'87c4415594769cb3abd9b026e52d4857'
+    */_createClass(Token, [{ key: "getToken", value: function getToken()
+    {var _this = this;var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      return new Promise(function (resolve, reject) {
+        resolve(_this.$u.post('/token', params));
+      });
+    } }, { key: "refreshToken", value: function refreshToken()
+
+    {var _this2 = this;var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      return new Promise(function (resolve, reject) {
+        resolve(_this2.$u.post('/token/action/refresh', params));
+      });
+    } }, { key: "resetToken", value: function resetToken()
+
+    {var _this3 = this;
+      return new Promise(function (resolve, reject) {
+        _this3.$u.post('/token/action/reset', params).then(function (_) {
+          _this3.$u.setVuex(_api.default.vuexTokenField, val);
+          resolve();
+        }).catch(function (err) {return reject(err);});
+      });
+    } }]);return Token;}();var _default =
+
+Token;exports.default = _default;
+
+/***/ }),
+/* 45 */
+/*!******************************************************!*\
+  !*** E:/hua5-single/lst-template/libs/config/api.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /*-----------------Api接口全局配置项----------------
+                                                                                                     *
+                                                                                                     * 注意：如果不使用appId和appSecret进行来路的合法性验证，请把他们留空。不要修改api.interceptor.js拦截器的任何代码
+                                                                                                     */var _default =
+
+{
+  requestUrl: 'http://seller_test.hua5.com/v1', //测试环境请求地址前缀
+  // requestUrl             : 'https://sapi.hua5.com/v1',  //生产环境请求地址前缀 
+  header: { 'content-type': 'application/json;charset=UTF-8' }, //默认请求头
+  headerKeyField: 'authentication', //请求头要带到后端验证的字段名称
+  vuexTokenField: 'vuex_token', //Vuex里面保存token的对象名称，必须配置
+  noInterceptUrl: ['session', 'api_configs', 'pages'] //不通过请求拦截器的api
+};exports.default = _default;
+
+/***/ }),
+/* 46 */
+/*!**********************************************************!*\
+  !*** E:/hua5-single/lst-template/model/config/Config.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Config = /*#__PURE__*/function () {
+
+  function Config($u) {_classCallCheck(this, Config);_defineProperty(this, "$u", void 0);
+    this.$u = $u;
+  }
+
+  /*
+    获取Config
+    @ params {scope:'api_config'}
+    */_createClass(Config, [{ key: "getConfig", value: function getConfig()
+    {var _this = this;var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      return new Promise(function (resolve, reject) {
+        _this.$u.get('/api_configs', params).then(function (res) {
+          console.log("config res -->", res);
+          resolve(res);
+        }).catch(function (err) {
+          reject(err);
+        });
+      });
+    } }]);return Config;}();var _default =
+
+Config;exports.default = _default;
+
+/***/ }),
+/* 47 */
+/*!********************************************************!*\
+  !*** E:/hua5-single/lst-template/model/login/Login.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _api = _interopRequireDefault(__webpack_require__(/*! @/libs/config/api */ 45));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var
+
+Login = /*#__PURE__*/function () {
+
+  function Login($u) {_classCallCheck(this, Login);_defineProperty(this, "$u", void 0);
+    this.$u = $u;
+  }
+
+  /*
+    登录
+    @ params  
+    type:'password'          //sms验证码登录 xcx小程序 app_wx：APP微信登录   password 密码登录
+    mobile:'17713564637',    //手机号
+    password:'123456',       //密码
+    code:'123456',           //验证码
+    xcx_code:'123456'        //小程序code
+    */_createClass(Login, [{ key: "login", value: function login()
+    {var _this = this;var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      var url = '/session/' + params.type;
+      return new Promise(function (resolve, reject) {
+        _this.$u.post(url, params).then(function (res) {
+          _this.$u.setVuex(_api.default.vuexTokenField, res.token);
+          resolve();
+        }).catch(function (err) {
+          //这里需要返回reject，方便外部特殊处理登录错误
+          reject(err);
+        });
+      });
+    }
+
+
+    /*
+      app微信登录
+      @ params  
+      type:'app_wx'
+      openid:
+      unionid:
+      nice_name:
+      avatar:
+      */ }, { key: "appWXLogin", value: function appWXLogin()
+    {var _this2 = this;var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      var url = '/session/app_wx';
+      return new Promise(function (resolve, reject) {
+        _this2.$u.post(url, params).then(function (res) {
+          _this2.$u.setVuex(_api.default.vuexTokenField, res.token);
+          console.log('wx login res--->', res);
+          resolve(res);
+        }).catch(function (err) {
+          //这里需要返回reject，方便外部特殊处理登录错误
+          console.log('wx login err--->', err);
+          reject(err);
+        });
+      });
+    }
+
+    /*
+      小程序微信登录
+      @ params  
+      type:'xcx',
+      xcx_code:
+      nice_name:
+      avatar:
+      */ }, { key: "WXMpLogin", value: function WXMpLogin()
+    {var _this3 = this;var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      var url = '/session/xcx';
+      return new Promise(function (resolve, reject) {
+        _this3.$u.post(url, params).then(function (res) {
+          _this3.$u.setVuex(_api.default.vuexTokenField, res.token);
+          console.log('wx login res--->', res);
+          resolve(res);
+        }).catch(function (err) {
+          //这里需要返回reject，方便外部特殊处理登录错误
+          console.log('wx login err--->', err);
+          reject(err);
+        });
+      });
+    } }, { key: "logout", value: function logout()
+
+
+    {var _this4 = this;var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var url = '/session/' + this.$u.state[_api.default.vuexTokenField].access_token;
+      this.$u.setVuex(_api.default.vuexTokenField, '');
+      this.$u.setVuex('vuex_user', '');
+      return new Promise(function (resolve, reject) {
+        _this4.$u.delete(url, params).then(function (res) {
+          resolve();
+        }).catch(function (err) {
+          //这里需要返回reject，方便外部特殊处理登录错误
+          reject(err);
+        });
+      });
+    } }]);return Login;}();var _default =
+
+
+
+
+Login;exports.default = _default;
+
+/***/ }),
+/* 48 */
 /*!*******************************************************!*\
   !*** E:/hua5-single/lst-template/libs/store/index.js ***!
   \*******************************************************/
@@ -10619,7 +10858,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 44));
+var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 49));
 
 
 
@@ -10692,7 +10931,7 @@ store;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 44 */
+/* 49 */
 /*!********************************************!*\
   !*** ./node_modules/vuex/dist/vuex.esm.js ***!
   \********************************************/
@@ -11804,219 +12043,6 @@ var index = {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/global.js */ 3)))
 
 /***/ }),
-/* 45 */,
-/* 46 */
-/*!********************************************************!*\
-  !*** E:/hua5-single/lst-template/model/token/Token.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _api = _interopRequireDefault(__webpack_require__(/*! @/libs/config/api */ 47));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var
-Token = /*#__PURE__*/function () {
-
-  function Token($u) {_classCallCheck(this, Token);_defineProperty(this, "$u", void 0);
-    this.$u = $u;
-  }
-
-  /*
-    获取Token
-    @ params  
-    appid:'hua5',
-    rand:665434,
-    timestamp:1584686739,
-    sign:'87c4415594769cb3abd9b026e52d4857'
-    */_createClass(Token, [{ key: "getToken", value: function getToken()
-    {var _this = this;var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      return new Promise(function (resolve, reject) {
-        resolve(_this.$u.post('/token', params));
-      });
-    } }, { key: "refreshToken", value: function refreshToken()
-
-    {var _this2 = this;var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      return new Promise(function (resolve, reject) {
-        resolve(_this2.$u.post('/token/action/refresh', params));
-      });
-    } }, { key: "resetToken", value: function resetToken()
-
-    {var _this3 = this;
-      return new Promise(function (resolve, reject) {
-        _this3.$u.post('/token/action/reset', params).then(function (_) {
-          _this3.$u.setVuex(_api.default.vuexTokenField, val);
-          resolve();
-        }).catch(function (err) {return reject(err);});
-      });
-    } }]);return Token;}();var _default =
-
-Token;exports.default = _default;
-
-/***/ }),
-/* 47 */
-/*!******************************************************!*\
-  !*** E:/hua5-single/lst-template/libs/config/api.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; /*-----------------Api接口全局配置项----------------
-                                                                                                     *
-                                                                                                     * 注意：如果不使用appId和appSecret进行来路的合法性验证，请把他们留空。不要修改api.interceptor.js拦截器的任何代码
-                                                                                                     */var _default =
-
-{
-  requestUrl: 'http://seller_test.hua5.com/v1', //测试环境请求地址前缀
-  // requestUrl             : 'https://sapi.hua5.com/v1',  //生产环境请求地址前缀 
-  header: { 'content-type': 'application/json;charset=UTF-8' }, //默认请求头
-  headerKeyField: 'authentication', //请求头要带到后端验证的字段名称
-  vuexTokenField: 'vuex_token', //Vuex里面保存token的对象名称，必须配置
-  noInterceptUrl: ['session', 'api_configs', 'pages'] //不通过请求拦截器的api
-};exports.default = _default;
-
-/***/ }),
-/* 48 */
-/*!**********************************************************!*\
-  !*** E:/hua5-single/lst-template/model/config/Config.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var Config = /*#__PURE__*/function () {
-
-  function Config($u) {_classCallCheck(this, Config);_defineProperty(this, "$u", void 0);
-    this.$u = $u;
-  }
-
-  /*
-    获取Config
-    @ params {scope:'api_config'}
-    */_createClass(Config, [{ key: "getConfig", value: function getConfig()
-    {var _this = this;var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      return new Promise(function (resolve, reject) {
-        _this.$u.get('/api_configs', params).then(function (res) {
-          console.log("config res -->", res);
-          resolve(res);
-        }).catch(function (err) {
-          reject(err);
-        });
-      });
-    } }]);return Config;}();var _default =
-
-Config;exports.default = _default;
-
-/***/ }),
-/* 49 */
-/*!********************************************************!*\
-  !*** E:/hua5-single/lst-template/model/login/Login.js ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _api = _interopRequireDefault(__webpack_require__(/*! @/libs/config/api */ 47));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var
-
-Login = /*#__PURE__*/function () {
-
-  function Login($u) {_classCallCheck(this, Login);_defineProperty(this, "$u", void 0);
-    this.$u = $u;
-  }
-
-  /*
-    登录
-    @ params  
-    type:'password'          //sms验证码登录 xcx小程序 app_wx：APP微信登录   password 密码登录
-    mobile:'17713564637',    //手机号
-    password:'123456',       //密码
-    code:'123456',           //验证码
-    xcx_code:'123456'        //小程序code
-    */_createClass(Login, [{ key: "login", value: function login()
-    {var _this = this;var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-      var url = '/session/' + params.type;
-      return new Promise(function (resolve, reject) {
-        _this.$u.post(url, params).then(function (res) {
-          _this.$u.setVuex(_api.default.vuexTokenField, res.token);
-          resolve();
-        }).catch(function (err) {
-          //这里需要返回reject，方便外部特殊处理登录错误
-          reject(err);
-        });
-      });
-    }
-
-
-    /*
-      app微信登录
-      @ params  
-      type:'app_wx'
-      openid:
-      unionid:
-      nice_name:
-      avatar:
-      */ }, { key: "appWXLogin", value: function appWXLogin()
-    {var _this2 = this;var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-      var url = '/session/app_wx';
-      return new Promise(function (resolve, reject) {
-        _this2.$u.post(url, params).then(function (res) {
-          _this2.$u.setVuex(_api.default.vuexTokenField, res.token);
-          console.log('wx login res--->', res);
-          resolve(res);
-        }).catch(function (err) {
-          //这里需要返回reject，方便外部特殊处理登录错误
-          console.log('wx login err--->', err);
-          reject(err);
-        });
-      });
-    }
-
-    /*
-      小程序微信登录
-      @ params  
-      type:'xcx',
-      xcx_code:
-      nice_name:
-      avatar:
-      */ }, { key: "WXMpLogin", value: function WXMpLogin()
-    {var _this3 = this;var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-      var url = '/session/xcx';
-      return new Promise(function (resolve, reject) {
-        _this3.$u.post(url, params).then(function (res) {
-          _this3.$u.setVuex(_api.default.vuexTokenField, res.token);
-          console.log('wx login res--->', res);
-          resolve(res);
-        }).catch(function (err) {
-          //这里需要返回reject，方便外部特殊处理登录错误
-          console.log('wx login err--->', err);
-          reject(err);
-        });
-      });
-    } }, { key: "logout", value: function logout()
-
-
-    {var _this4 = this;var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      var url = '/session/' + this.$u.state[_api.default.vuexTokenField].access_token;
-      this.$u.setVuex(_api.default.vuexTokenField, '');
-      this.$u.setVuex('vuex_user', '');
-      return new Promise(function (resolve, reject) {
-        _this4.$u.delete(url, params).then(function (res) {
-          resolve();
-        }).catch(function (err) {
-          //这里需要返回reject，方便外部特殊处理登录错误
-          reject(err);
-        });
-      });
-    } }]);return Login;}();var _default =
-
-
-
-
-Login;exports.default = _default;
-
-/***/ }),
 /* 50 */
 /*!**************************************************************!*\
   !*** E:/hua5-single/lst-template/libs/store/modules/cart.js ***!
@@ -12026,7 +12052,7 @@ Login;exports.default = _default;
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 14));var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));
-var _index = _interopRequireDefault(__webpack_require__(/*! ../index.js */ 43));
+var _index = _interopRequireDefault(__webpack_require__(/*! ../index.js */ 48));
 var _uviewUi = _interopRequireDefault(__webpack_require__(/*! uview-ui */ 17));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
 _vue.default.use(_uviewUi.default);
 
@@ -12204,7 +12230,7 @@ var getters = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 14));var _api = _interopRequireDefault(__webpack_require__(/*! @/libs/config/api */ 47));
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 14));var _api = _interopRequireDefault(__webpack_require__(/*! @/libs/config/api */ 45));
 var _router = __webpack_require__(/*! @/libs/router/router.js */ 11);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
 
 var install = function install(Vue) {
@@ -12219,17 +12245,17 @@ var install = function install(Vue) {
 
   /*-----------------请求拦截器----------------*/
   //请求拦截器开始
-  $u.http.interceptor.request = /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(option) {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!(
+  $u.http.interceptor.request = /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(option) {var headerKey;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!(
 
               _api.default.noInterceptUrl.indexOf(option.url.replace(_api.default.baseUrl, '')) != -1)) {_context.next = 2;break;}return _context.abrupt("return", option);case 2:
 
-
+              headerKey = '';
               //如果有要带到后端的验证数据，就写入请求头中
               if (_api.default.headerKeyField && headerKey) option.header[_api.default.headerKeyField] = headerKey;
 
 
               //正常请求
-              return _context.abrupt("return", option);case 4:case "end":return _context.stop();}}}, _callee);}));return function (_x) {return _ref.apply(this, arguments);};}();
+              return _context.abrupt("return", option);case 5:case "end":return _context.stop();}}}, _callee);}));return function (_x) {return _ref.apply(this, arguments);};}();
 
 
 
@@ -12250,54 +12276,6 @@ var install = function install(Vue) {
     return res.data;
 
   };
-
-};var _default =
-
-{
-  install: install };exports.default = _default;
-
-/***/ }),
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */,
-/* 72 */,
-/* 73 */
-/*!**************************************************!*\
-  !*** E:/hua5-single/lst-template/model/model.js ***!
-  \**************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _Token = _interopRequireDefault(__webpack_require__(/*! @/model/token/Token.js */ 46));
-var _Config = _interopRequireDefault(__webpack_require__(/*! @/model/config/Config.js */ 48));
-var _Login = _interopRequireDefault(__webpack_require__(/*! @/model/login/Login.js */ 49));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-
-
-var install = function install(Vue) {
-  console.log("$u -->", Vue.prototype.$u);
-  var $u = Vue.prototype.$u;
-  $u.m = {
-    token: new _Token.default($u),
-    config: new _Config.default($u),
-    login: new _Login.default($u) };
 
 };var _default =
 

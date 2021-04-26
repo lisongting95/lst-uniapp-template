@@ -17,7 +17,7 @@ const install = (Vue) => {
 		//如果在请求地址在 noInterceptUrl 列表中，则不通过拦截器直接请求
 		if(config.noInterceptUrl.indexOf(option.url.replace(config.baseUrl,''))!=-1)return option
 	
-	
+		let headerKey = ''
 		//如果有要带到后端的验证数据，就写入请求头中
 		if(config.headerKeyField && headerKey) option.header[config.headerKeyField] = headerKey
 		

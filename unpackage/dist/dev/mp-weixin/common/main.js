@@ -22,11 +22,11 @@ var _uviewUi = _interopRequireDefault(__webpack_require__(/*! uview-ui */ 17));
 
 
 
-var _model = _interopRequireDefault(__webpack_require__(/*! ./model/model.js */ 73));
+var _model = _interopRequireDefault(__webpack_require__(/*! ./model/model.js */ 43));
 
 
 
-var _index = _interopRequireDefault(__webpack_require__(/*! ./libs/store/index.js */ 43));
+var _index = _interopRequireDefault(__webpack_require__(/*! ./libs/store/index.js */ 48));
 
 
 
