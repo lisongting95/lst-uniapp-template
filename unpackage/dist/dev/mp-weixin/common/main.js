@@ -17,20 +17,20 @@ var _index = _interopRequireDefault(__webpack_require__(/*! ./libs/store/index.j
 
 
 
-var _router = __webpack_require__(/*! ./libs/router/router.js */ 13);
-var _guard = _interopRequireDefault(__webpack_require__(/*! ./libs/router/guard.js */ 15));
+var _router = __webpack_require__(/*! ./libs/router/router.js */ 14);
+var _guard = _interopRequireDefault(__webpack_require__(/*! ./libs/router/guard.js */ 16));
 
 
 
-var _uviewUi = _interopRequireDefault(__webpack_require__(/*! uview-ui */ 19));
+var _uviewUi = _interopRequireDefault(__webpack_require__(/*! uview-ui */ 20));
 
 
 
-var _intercepter = _interopRequireDefault(__webpack_require__(/*! ./libs/interceptor/intercepter.js */ 45));
+var _intercepter = _interopRequireDefault(__webpack_require__(/*! ./libs/interceptor/intercepter.js */ 46));
 
 
 
-var _model = _interopRequireDefault(__webpack_require__(/*! ./model/model.js */ 47));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}_vue.default.prototype.$store = _index.default; //路由
+var _model = _interopRequireDefault(__webpack_require__(/*! ./model/model.js */ 48));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}_vue.default.prototype.$store = _index.default; //路由
 _vue.default.use(_guard.default); // 路由守卫：登录用户的权限控制，以及全局onLoad前的动作都在这里
 //uView
 _vue.default.use(_uviewUi.default); //拦截器

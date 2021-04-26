@@ -1,6 +1,5 @@
 // 购物车模块
-import http from '@/common/request/index'
-import store from '@/common/store'
+import store from '../index.js'
 
 const state = {
 	cartList: [],

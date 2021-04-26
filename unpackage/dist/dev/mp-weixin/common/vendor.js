@@ -8,7 +8,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.createApp = createApp;exports.createComponent = createComponent;exports.createPage = createPage;exports.createSubpackageApp = createSubpackageApp;exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
+Object.defineProperty(exports, "__esModule", { value: true });exports.createApp = createApp;exports.createComponent = createComponent;exports.createPage = createPage;exports.createPlugin = createPlugin;exports.createSubpackageApp = createSubpackageApp;exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 2));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
 
 var _toString = Object.prototype.toString;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -681,7 +681,7 @@ var customize = cached(function (str) {
 
 function initTriggerEvent(mpInstance) {
   {
-    if (!wx.canIUse('nextTick')) {
+    if (!wx.canIUse || !wx.canIUse('nextTick')) {
       return;
     }
   }
@@ -1295,11 +1295,63 @@ function initEventChannel() {
   };
 }
 
+function initScopedSlotsParams() {
+  var center = {};
+  var parents = {};
+
+  _vue.default.prototype.$hasScopedSlotsParams = function (vueId) {
+    var has = center[vueId];
+    if (!has) {
+      parents[vueId] = this;
+      this.$on('hook:destory', function () {
+        delete parents[vueId];
+      });
+    }
+    return has;
+  };
+
+  _vue.default.prototype.$getScopedSlotsParams = function (vueId, name, key) {
+    var data = center[vueId];
+    if (data) {
+      var object = data[name] || {};
+      return key ? object[key] : object;
+    } else {
+      parents[vueId] = this;
+      this.$on('hook:destory', function () {
+        delete parents[vueId];
+      });
+    }
+  };
+
+  _vue.default.prototype.$setScopedSlotsParams = function (name, value) {
+    var vueId = this.$options.propsData.vueId;
+    var object = center[vueId] = center[vueId] || {};
+    object[name] = value;
+    if (parents[vueId]) {
+      parents[vueId].$forceUpdate();
+    }
+  };
+
+  _vue.default.mixin({
+    destroyed: function destroyed() {
+      var propsData = this.$options.propsData;
+      var vueId = propsData && propsData.vueId;
+      if (vueId) {
+        delete center[vueId];
+        delete parents[vueId];
+      }
+    } });
+
+}
+
 function parseBaseApp(vm, _ref3)
 
 
 {var mocks = _ref3.mocks,initRefs = _ref3.initRefs;
   initEventChannel();
+  {
+    initScopedSlotsParams();
+  }
   if (vm.$options.store) {
     _vue.default.prototype.$store = vm.$options.store;
   }
@@ -1323,7 +1375,7 @@ function parseBaseApp(vm, _ref3)
 
       delete this.$options.mpType;
       delete this.$options.mpInstance;
-      if (this.mpType === 'page') {// hack vue-i18n
+      if (this.mpType === 'page' && typeof getApp === 'function') {// hack vue-i18n
         var app = getApp();
         if (app.$vm && app.$vm.$i18n) {
           this._i18n = app.$vm.$i18n;
@@ -1342,7 +1394,7 @@ function parseBaseApp(vm, _ref3)
         return;
       }
       {
-        if (!wx.canIUse('nextTick')) {// 事实 上2.2.3 即可，简单使用 2.3.0 的 nextTick 判断
+        if (wx.canIUse && !wx.canIUse('nextTick')) {// 事实 上2.2.3 即可，简单使用 2.3.0 的 nextTick 判断
           console.error('当前微信基础库版本过低，请将 微信开发者工具-详情-项目设置-调试基础库版本 更换为`2.3.0`以上');
         }
       }
@@ -1711,6 +1763,25 @@ function createSubpackageApp(vm) {
   return vm;
 }
 
+function createPlugin(vm) {
+  var appOptions = parseApp(vm);
+  if (isFn(appOptions.onShow) && wx.onAppShow) {
+    wx.onAppShow(function () {for (var _len7 = arguments.length, args = new Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {args[_key7] = arguments[_key7];}
+      appOptions.onShow.apply(vm, args);
+    });
+  }
+  if (isFn(appOptions.onHide) && wx.onAppHide) {
+    wx.onAppHide(function () {for (var _len8 = arguments.length, args = new Array(_len8), _key8 = 0; _key8 < _len8; _key8++) {args[_key8] = arguments[_key8];}
+      appOptions.onHide.apply(vm, args);
+    });
+  }
+  if (isFn(appOptions.onLaunch)) {
+    var args = wx.getLaunchOptionsSync && wx.getLaunchOptionsSync();
+    appOptions.onLaunch.call(vm, args);
+  }
+  return vm;
+}
+
 todos.forEach(function (todoApi) {
   protocols[todoApi] = false;
 });
@@ -1791,6 +1862,7 @@ wx.createApp = createApp;
 wx.createPage = createPage;
 wx.createComponent = createComponent;
 wx.createSubpackageApp = createSubpackageApp;
+wx.createPlugin = createPlugin;
 
 var uni$1 = uni;var _default =
 
@@ -7613,7 +7685,7 @@ function internalMixin(Vue) {
     Vue.util.warn(("Error in " + info + ": \"" + (err.toString()) + "\""), vm);
     console.error(err);
     /* eslint-disable no-undef */
-    var app = getApp();
+    var app = typeof getApp === 'function' && getApp();
     if (app && app.onError) {
       app.onError(err);
     }
@@ -8031,7 +8103,7 @@ var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 12));
 
 
 
-var _cart = _interopRequireDefault(__webpack_require__(/*! ./modules/cart.js */ 75));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}_vue.default.use(_vuex.default); //分块
+var _cart = _interopRequireDefault(__webpack_require__(/*! ./modules/cart.js */ 13));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}_vue.default.use(_vuex.default); //分块
 
 
 //持久化
@@ -9212,6 +9284,163 @@ var index = {
 
 /***/ }),
 /* 13 */
+/*!**************************************************************!*\
+  !*** E:/hua5-single/lst-template/libs/store/modules/cart.js ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+var _index = _interopRequireDefault(__webpack_require__(/*! ../index.js */ 11));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 购物车模块
+
+var state = {
+  cartList: [],
+  allSelected: false,
+  cartNum: uni.getStorageSync('cartNum') ? uni.getStorageSync('cartNum') : 0 //购物车,涉及到刷新数据丢失，所以存了本地,
+};
+
+var actions = {
+  // 购物车数据（查）
+  getCartList: function getCartList(_ref)
+
+
+  {var commit = _ref.commit,state = _ref.state;
+    return new Promise(function (resolve, reject) {
+      http('cart.index').then(function (res) {
+        var cartData = res.data;
+        cartData.map(function (item) {
+          item.checked = true;
+        });
+        uni.setStorageSync('cartNum', cartData.length);
+        commit('CART_LIST', cartData);
+        commit('checkCartList');
+        commit('CART_NUM');
+      }).catch(function (e) {
+        reject(e);
+      });
+    });
+  },
+  // 添加到购物车（增）
+  addCartGoods: function addCartGoods(_ref2,
+
+  data) {var commit = _ref2.commit;
+    return new Promise(function (resolve, reject) {
+      http('cart.add', {
+        goods_list: data.list,
+        from: data.from }).
+      then(function (res) {
+        _index.default.dispatch('getCartList');
+        resolve(res);
+      }).catch(function (e) {
+        reject(e);
+      });
+    });
+  },
+  // 修改购物车商品数量（改）|| 删除购物车商品（删）
+  changeCartList: function changeCartList(_ref3,
+
+
+
+  param) {var commit = _ref3.commit,state = _ref3.state,dispatch = _ref3.dispatch;
+    return new Promise(function (resolve, reject) {
+      http('cart.edit', {
+        cart_list: param.ids,
+        value: param.goodsNum || null,
+        act: param.art }).
+      then(function (res) {
+        if (param.art === 'delete' && res.code === 1) {
+          _index.default.dispatch('getCartList');
+        }
+        resolve(res);
+        commit('checkCartList');
+      }).catch(function (e) {
+        reject(e);
+      });
+    });
+  } };
+
+
+var mutations = {
+
+  // cart数量角标更新。
+  commitCartNum: function commitCartNum(state, data) {
+    var cartNum = uni.getStorageSync('cartNum') ? uni.getStorageSync('cartNum') : 0;
+    state.cartNum = cartNum;
+  } };
+
+
+
+var getters = {
+  // 购物车数量和总价
+  totalCount: function totalCount(state) {
+    var totalNum = 0;
+    var totalPrice = 0;
+    state.cartList.filter(function (item) {
+      if (item.checked) {
+        totalNum += 1;
+        totalPrice += item.goods_num * item.sku_price.price;
+      }
+    });
+    return {
+      totalNum: totalNum,
+      totalPrice: totalPrice };
+
+  },
+  // 外卖购物车数量和总价
+  takeoutTotalCount: function takeoutTotalCount(state) {
+    var totalNum = 0;
+    var totalPrice = 0;
+    state.cartList.forEach(function (item) {
+      totalNum += item.goods_num;
+      totalPrice += item.goods_num * item.sku_price.price;
+    });
+    return {
+      totalNum: totalNum,
+      totalPrice: totalPrice };
+
+
+  },
+  // 是否选择了商品
+  isSel: function isSel(state) {
+    var isSel = false;
+    state.cartList.map(function (item) {
+      if (item.checked) {
+        isSel = true;
+      }
+    });
+    return isSel;
+  },
+
+  // 活动商品唯一选中可以结算
+  isActivityPay: function isActivityPay() {
+    var num = 0;
+    var activityNum = 0;
+    state.cartList.map(function (item) {
+      if (item.checked) {
+        num += 1;
+        if (item.cart_type === 'activity') {
+          activityNum += 1;
+        }
+      }
+    });
+    if (num === 1 && activityNum === 1 || activityNum === 0) {
+      return true;
+    }
+    return false;
+  } };var _default =
+
+
+
+{
+  state: state,
+  mutations: mutations,
+  actions: actions,
+  getters: getters };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 14 */
 /*!*********************************************************!*\
   !*** E:/hua5-single/lst-template/libs/router/router.js ***!
   \*********************************************************/
@@ -9220,7 +9449,7 @@ var index = {
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "RouterMount", { enumerable: true, get: function get() {return _uniSimpleRouter.RouterMount;} });exports.router = void 0;
-var _uniSimpleRouter = __webpack_require__(/*! uni-simple-router */ 14);function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
+var _uniSimpleRouter = __webpack_require__(/*! uni-simple-router */ 15);function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
 
 var router = (0, _uniSimpleRouter.createRouter)({
   platform: "mp-weixin",
@@ -9238,7 +9467,7 @@ var router = (0, _uniSimpleRouter.createRouter)({
 exports.router = router;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /*!********************************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uni-simple-router/dist/uni-simple-router.js ***!
   \********************************************************************************************/
@@ -9249,7 +9478,7 @@ exports.router = router;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /*!********************************************************!*\
   !*** E:/hua5-single/lst-template/libs/router/guard.js ***!
   \********************************************************/
@@ -9257,10 +9486,10 @@ exports.router = router;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 16));
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 17));
 
 
-var _router = __webpack_require__(/*! ./router.js */ 13);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+var _router = __webpack_require__(/*! ./router.js */ 14);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
 var install = function install(Vue) {
   Vue.use(_router.router);
   var $u = Vue.prototype.$u;
@@ -9285,17 +9514,17 @@ var install = function install(Vue) {
   install: install };exports.default = _default;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /*!**********************************************************!*\
   !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! regenerator-runtime */ 17);
+module.exports = __webpack_require__(/*! regenerator-runtime */ 18);
 
 /***/ }),
-/* 17 */
+/* 18 */
 /*!************************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
   \************************************************************/
@@ -9326,7 +9555,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(/*! ./runtime */ 18);
+module.exports = __webpack_require__(/*! ./runtime */ 19);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -9342,7 +9571,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -10073,7 +10302,7 @@ if (hadRuntime) {
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /*!******************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/index.js ***!
   \******************************************************************/
@@ -10082,15 +10311,11 @@ if (hadRuntime) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 20));
+var _mixin = _interopRequireDefault(__webpack_require__(/*! ./libs/mixin/mixin.js */ 21));
 
 
 
-var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 21));
-
-
-
-
+var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 22));
 
 
 
@@ -10107,56 +10332,60 @@ var _request = _interopRequireDefault(__webpack_require__(/*! ./libs/request */ 
 
 
 
-var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 25));
-
-var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 26));
-
-var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 27));
-
-var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 28));
-
-var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 29));
-
-var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 30));
-
-var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 31));
-
-var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 32));
-
-var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 33));
-
-var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 23));
-
-var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepMerge.js */ 22));
-
-var _addUnit = _interopRequireDefault(__webpack_require__(/*! ./libs/function/addUnit.js */ 34));
-
-
-var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 24));
-
-var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 35));
-
-var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 36));
-
-var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 37));
-
-var _getParent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/getParent.js */ 38));
-
-var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 39));
 
 
 
-var _sys = __webpack_require__(/*! ./libs/function/sys.js */ 40);
 
-var _debounce = _interopRequireDefault(__webpack_require__(/*! ./libs/function/debounce.js */ 41));
+var _queryParams = _interopRequireDefault(__webpack_require__(/*! ./libs/function/queryParams.js */ 26));
 
-var _throttle = _interopRequireDefault(__webpack_require__(/*! ./libs/function/throttle.js */ 42));
+var _route = _interopRequireDefault(__webpack_require__(/*! ./libs/function/route.js */ 27));
+
+var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFormat.js */ 28));
+
+var _timeFrom = _interopRequireDefault(__webpack_require__(/*! ./libs/function/timeFrom.js */ 29));
+
+var _colorGradient = _interopRequireDefault(__webpack_require__(/*! ./libs/function/colorGradient.js */ 30));
+
+var _guid = _interopRequireDefault(__webpack_require__(/*! ./libs/function/guid.js */ 31));
+
+var _color = _interopRequireDefault(__webpack_require__(/*! ./libs/function/color.js */ 32));
+
+var _type2icon = _interopRequireDefault(__webpack_require__(/*! ./libs/function/type2icon.js */ 33));
+
+var _randomArray = _interopRequireDefault(__webpack_require__(/*! ./libs/function/randomArray.js */ 34));
+
+var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepClone.js */ 24));
+
+var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ./libs/function/deepMerge.js */ 23));
+
+var _addUnit = _interopRequireDefault(__webpack_require__(/*! ./libs/function/addUnit.js */ 35));
+
+
+var _test = _interopRequireDefault(__webpack_require__(/*! ./libs/function/test.js */ 25));
+
+var _random = _interopRequireDefault(__webpack_require__(/*! ./libs/function/random.js */ 36));
+
+var _trim = _interopRequireDefault(__webpack_require__(/*! ./libs/function/trim.js */ 37));
+
+var _toast = _interopRequireDefault(__webpack_require__(/*! ./libs/function/toast.js */ 38));
+
+var _getParent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/getParent.js */ 39));
+
+var _$parent = _interopRequireDefault(__webpack_require__(/*! ./libs/function/$parent.js */ 40));
 
 
 
-var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 43));
+var _sys = __webpack_require__(/*! ./libs/function/sys.js */ 41);
 
-var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 44));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 引入全局mixin
+var _debounce = _interopRequireDefault(__webpack_require__(/*! ./libs/function/debounce.js */ 42));
+
+var _throttle = _interopRequireDefault(__webpack_require__(/*! ./libs/function/throttle.js */ 43));
+
+
+
+var _config = _interopRequireDefault(__webpack_require__(/*! ./libs/config/config.js */ 44));
+
+var _zIndex = _interopRequireDefault(__webpack_require__(/*! ./libs/config/zIndex.js */ 45));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 引入全局mixin
 // 引入关于是否mixin集成小程序分享的配置
 // import wxshare from './libs/mixin/mpShare.js'
 // 全局挂载引入http相关请求拦截插件
@@ -10224,7 +10453,7 @@ var install = function install(Vue) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 20 */
+/* 21 */
 /*!*****************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/mixin/mixin.js ***!
   \*****************************************************************************/
@@ -10297,7 +10526,7 @@ var install = function install(Vue) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 21 */
+/* 22 */
 /*!*******************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/request/index.js ***!
   \*******************************************************************************/
@@ -10305,8 +10534,8 @@ var install = function install(Vue) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ../function/deepMerge */ 22));
-var _test = _interopRequireDefault(__webpack_require__(/*! ../function/test */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepMerge = _interopRequireDefault(__webpack_require__(/*! ../function/deepMerge */ 23));
+var _test = _interopRequireDefault(__webpack_require__(/*! ../function/test */ 25));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
 Request = /*#__PURE__*/function () {_createClass(Request, [{ key: "setConfig",
     // 设置全局默认配置
     value: function setConfig(customConfig) {
@@ -10477,7 +10706,7 @@ new Request();exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 22 */
+/* 23 */
 /*!************************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/deepMerge.js ***!
   \************************************************************************************/
@@ -10485,7 +10714,7 @@ new Request();exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./deepClone */ 23));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _deepClone = _interopRequireDefault(__webpack_require__(/*! ./deepClone */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 // JS对象深度合并
 function deepMerge() {var target = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var source = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
@@ -10517,7 +10746,7 @@ function deepMerge() {var target = arguments.length > 0 && arguments[0] !== unde
 deepMerge;exports.default = _default;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /*!************************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/deepClone.js ***!
   \************************************************************************************/
@@ -10550,7 +10779,7 @@ function deepClone(obj) {
 deepClone;exports.default = _default;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /*!*******************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/test.js ***!
   \*******************************************************************************/
@@ -10791,7 +11020,7 @@ function code(value) {var len = arguments.length > 1 && arguments[1] !== undefin
   code: code };exports.default = _default;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /*!**************************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/queryParams.js ***!
   \**************************************************************************************/
@@ -10859,7 +11088,7 @@ function queryParams() {var data = arguments.length > 0 && arguments[0] !== unde
 queryParams;exports.default = _default;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /*!********************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/route.js ***!
   \********************************************************************************/
@@ -10867,7 +11096,7 @@ queryParams;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 16));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 17));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * 并且带有路由拦截功能
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */var
@@ -10992,7 +11221,7 @@ new Router().route;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 27 */
+/* 28 */
 /*!*************************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/timeFormat.js ***!
   \*************************************************************************************/
@@ -11053,7 +11282,7 @@ function timeFormat() {var dateTime = arguments.length > 0 && arguments[0] !== u
 timeFormat;exports.default = _default;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /*!***********************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/timeFrom.js ***!
   \***********************************************************************************/
@@ -11061,7 +11290,7 @@ timeFormat;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ../../libs/function/timeFormat.js */ 27));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _timeFormat = _interopRequireDefault(__webpack_require__(/*! ../../libs/function/timeFormat.js */ 28));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 /**
                                                                                                                                                                                                                                                                                           * 时间戳转为多久之前
@@ -11110,7 +11339,7 @@ function timeFrom() {var dateTime = arguments.length > 0 && arguments[0] !== und
 timeFrom;exports.default = _default;
 
 /***/ }),
-/* 29 */
+/* 30 */
 /*!****************************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/colorGradient.js ***!
   \****************************************************************************************/
@@ -11253,7 +11482,7 @@ function colorToRgba(color) {var alpha = arguments.length > 1 && arguments[1] !=
   colorToRgba: colorToRgba };exports.default = _default;
 
 /***/ }),
-/* 30 */
+/* 31 */
 /*!*******************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/guid.js ***!
   \*******************************************************************************/
@@ -11304,7 +11533,7 @@ function guid() {var len = arguments.length > 0 && arguments[0] !== undefined ? 
 guid;exports.default = _default;
 
 /***/ }),
-/* 31 */
+/* 32 */
 /*!********************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/color.js ***!
   \********************************************************************************/
@@ -11351,7 +11580,7 @@ var color = {
 color;exports.default = _default;
 
 /***/ }),
-/* 32 */
+/* 33 */
 /*!************************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/type2icon.js ***!
   \************************************************************************************/
@@ -11396,7 +11625,7 @@ function type2icon() {var type = arguments.length > 0 && arguments[0] !== undefi
 type2icon;exports.default = _default;
 
 /***/ }),
-/* 33 */
+/* 34 */
 /*!**************************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/randomArray.js ***!
   \**************************************************************************************/
@@ -11413,7 +11642,7 @@ function randomArray() {var array = arguments.length > 0 && arguments[0] !== und
 randomArray;exports.default = _default;
 
 /***/ }),
-/* 34 */
+/* 35 */
 /*!**********************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/addUnit.js ***!
   \**********************************************************************************/
@@ -11421,7 +11650,7 @@ randomArray;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = addUnit;var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 24));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = addUnit;var _test = _interopRequireDefault(__webpack_require__(/*! ./test.js */ 25));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 // 添加单位，如果有rpx，%，px等单位结尾或者值为auto，直接返回，否则加上rpx单位结尾
 function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'auto';var unit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'rpx';
@@ -11431,7 +11660,7 @@ function addUnit() {var value = arguments.length > 0 && arguments[0] !== undefin
 }
 
 /***/ }),
-/* 35 */
+/* 36 */
 /*!*********************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/random.js ***!
   \*********************************************************************************/
@@ -11451,7 +11680,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 random;exports.default = _default;
 
 /***/ }),
-/* 36 */
+/* 37 */
 /*!*******************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/trim.js ***!
   \*******************************************************************************/
@@ -11476,7 +11705,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 trim;exports.default = _default;
 
 /***/ }),
-/* 37 */
+/* 38 */
 /*!********************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/toast.js ***!
   \********************************************************************************/
@@ -11496,7 +11725,7 @@ toast;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 38 */
+/* 39 */
 /*!************************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/getParent.js ***!
   \************************************************************************************/
@@ -11553,7 +11782,7 @@ function getParent(name, keys) {
 }
 
 /***/ }),
-/* 39 */
+/* 40 */
 /*!**********************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/$parent.js ***!
   \**********************************************************************************/
@@ -11581,7 +11810,7 @@ function $parent() {var name = arguments.length > 0 && arguments[0] !== undefine
 }
 
 /***/ }),
-/* 40 */
+/* 41 */
 /*!******************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/sys.js ***!
   \******************************************************************************/
@@ -11599,7 +11828,7 @@ function sys() {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 41 */
+/* 42 */
 /*!***********************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/debounce.js ***!
   \***********************************************************************************/
@@ -11638,7 +11867,7 @@ function debounce(func) {var wait = arguments.length > 1 && arguments[1] !== und
 debounce;exports.default = _default;
 
 /***/ }),
-/* 42 */
+/* 43 */
 /*!***********************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/function/throttle.js ***!
   \***********************************************************************************/
@@ -11680,7 +11909,7 @@ function throttle(func) {var wait = arguments.length > 1 && arguments[1] !== und
 throttle;exports.default = _default;
 
 /***/ }),
-/* 43 */
+/* 44 */
 /*!*******************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/config/config.js ***!
   \*******************************************************************************/
@@ -11703,7 +11932,7 @@ var version = '1.8.3';var _default =
   'warning'] };exports.default = _default;
 
 /***/ }),
-/* 44 */
+/* 45 */
 /*!*******************************************************************************!*\
   !*** E:/hua5-single/lst-template/node_modules/uview-ui/libs/config/zIndex.js ***!
   \*******************************************************************************/
@@ -11732,7 +11961,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   indexListSticky: 965 };exports.default = _default;
 
 /***/ }),
-/* 45 */
+/* 46 */
 /*!*******************************************************************!*\
   !*** E:/hua5-single/lst-template/libs/interceptor/intercepter.js ***!
   \*******************************************************************/
@@ -11740,8 +11969,8 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 16));var _api = _interopRequireDefault(__webpack_require__(/*! @/libs/config/api */ 46));
-var _router = __webpack_require__(/*! @/libs/router/router.js */ 13);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 17));var _api = _interopRequireDefault(__webpack_require__(/*! @/libs/config/api */ 47));
+var _router = __webpack_require__(/*! @/libs/router/router.js */ 14);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
 
 var install = function install(Vue) {
   Vue.use(_router.router);
@@ -11793,7 +12022,7 @@ var install = function install(Vue) {
   install: install };exports.default = _default;
 
 /***/ }),
-/* 46 */
+/* 47 */
 /*!******************************************************!*\
   !*** E:/hua5-single/lst-template/libs/config/api.js ***!
   \******************************************************/
@@ -11815,7 +12044,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 };exports.default = _default;
 
 /***/ }),
-/* 47 */
+/* 48 */
 /*!**************************************************!*\
   !*** E:/hua5-single/lst-template/model/model.js ***!
   \**************************************************/
@@ -11823,9 +12052,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _Token = _interopRequireDefault(__webpack_require__(/*! @/model/token/Token.js */ 48));
-var _Config = _interopRequireDefault(__webpack_require__(/*! @/model/config/Config.js */ 49));
-var _Login = _interopRequireDefault(__webpack_require__(/*! @/model/login/Login.js */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _Token = _interopRequireDefault(__webpack_require__(/*! @/model/token/Token.js */ 49));
+var _Config = _interopRequireDefault(__webpack_require__(/*! @/model/config/Config.js */ 50));
+var _Login = _interopRequireDefault(__webpack_require__(/*! @/model/login/Login.js */ 51));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
 var install = function install(Vue) {
@@ -11841,7 +12070,7 @@ var install = function install(Vue) {
   install: install };exports.default = _default;
 
 /***/ }),
-/* 48 */
+/* 49 */
 /*!********************************************************!*\
   !*** E:/hua5-single/lst-template/model/token/Token.js ***!
   \********************************************************/
@@ -11849,7 +12078,7 @@ var install = function install(Vue) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _api = _interopRequireDefault(__webpack_require__(/*! @/libs/config/api */ 46));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _api = _interopRequireDefault(__webpack_require__(/*! @/libs/config/api */ 47));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var
 Token = /*#__PURE__*/function () {
 
   function Token($u) {_classCallCheck(this, Token);_defineProperty(this, "$u", void 0);
@@ -11888,7 +12117,7 @@ Token = /*#__PURE__*/function () {
 Token;exports.default = _default;
 
 /***/ }),
-/* 49 */
+/* 50 */
 /*!**********************************************************!*\
   !*** E:/hua5-single/lst-template/model/config/Config.js ***!
   \**********************************************************/
@@ -11920,7 +12149,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 Config;exports.default = _default;
 
 /***/ }),
-/* 50 */
+/* 51 */
 /*!********************************************************!*\
   !*** E:/hua5-single/lst-template/model/login/Login.js ***!
   \********************************************************/
@@ -11928,7 +12157,7 @@ Config;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _api = _interopRequireDefault(__webpack_require__(/*! @/libs/config/api */ 46));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _api = _interopRequireDefault(__webpack_require__(/*! @/libs/config/api */ 47));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var
 
 Login = /*#__PURE__*/function () {
 
@@ -12028,188 +12257,6 @@ Login = /*#__PURE__*/function () {
 
 
 Login;exports.default = _default;
-
-/***/ }),
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */,
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */
-/*!**************************************************************!*\
-  !*** E:/hua5-single/lst-template/libs/store/modules/cart.js ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-var _index = _interopRequireDefault(__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '@/common/request/index'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())));
-var _store = _interopRequireDefault(__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module '@/common/store'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // 购物车模块
-
-var state = {
-  cartList: [],
-  allSelected: false,
-  cartNum: uni.getStorageSync('cartNum') ? uni.getStorageSync('cartNum') : 0 //购物车,涉及到刷新数据丢失，所以存了本地,
-};
-
-var actions = {
-  // 购物车数据（查）
-  getCartList: function getCartList(_ref)
-
-
-  {var commit = _ref.commit,state = _ref.state;
-    return new Promise(function (resolve, reject) {
-      (0, _index.default)('cart.index').then(function (res) {
-        var cartData = res.data;
-        cartData.map(function (item) {
-          item.checked = true;
-        });
-        uni.setStorageSync('cartNum', cartData.length);
-        commit('CART_LIST', cartData);
-        commit('checkCartList');
-        commit('CART_NUM');
-      }).catch(function (e) {
-        reject(e);
-      });
-    });
-  },
-  // 添加到购物车（增）
-  addCartGoods: function addCartGoods(_ref2,
-
-  data) {var commit = _ref2.commit;
-    return new Promise(function (resolve, reject) {
-      (0, _index.default)('cart.add', {
-        goods_list: data.list,
-        from: data.from }).
-      then(function (res) {
-        _store.default.dispatch('getCartList');
-        resolve(res);
-      }).catch(function (e) {
-        reject(e);
-      });
-    });
-  },
-  // 修改购物车商品数量（改）|| 删除购物车商品（删）
-  changeCartList: function changeCartList(_ref3,
-
-
-
-  param) {var commit = _ref3.commit,state = _ref3.state,dispatch = _ref3.dispatch;
-    return new Promise(function (resolve, reject) {
-      (0, _index.default)('cart.edit', {
-        cart_list: param.ids,
-        value: param.goodsNum || null,
-        act: param.art }).
-      then(function (res) {
-        if (param.art === 'delete' && res.code === 1) {
-          _store.default.dispatch('getCartList');
-        }
-        resolve(res);
-        commit('checkCartList');
-      }).catch(function (e) {
-        reject(e);
-      });
-    });
-  } };
-
-
-var mutations = {
-
-  // cart数量角标更新。
-  commitCartNum: function commitCartNum(state, data) {
-    var cartNum = uni.getStorageSync('cartNum') ? uni.getStorageSync('cartNum') : 0;
-    state.cartNum = cartNum;
-  } };
-
-
-
-var getters = {
-  // 购物车数量和总价
-  totalCount: function totalCount(state) {
-    var totalNum = 0;
-    var totalPrice = 0;
-    state.cartList.filter(function (item) {
-      if (item.checked) {
-        totalNum += 1;
-        totalPrice += item.goods_num * item.sku_price.price;
-      }
-    });
-    return {
-      totalNum: totalNum,
-      totalPrice: totalPrice };
-
-  },
-  // 外卖购物车数量和总价
-  takeoutTotalCount: function takeoutTotalCount(state) {
-    var totalNum = 0;
-    var totalPrice = 0;
-    state.cartList.forEach(function (item) {
-      totalNum += item.goods_num;
-      totalPrice += item.goods_num * item.sku_price.price;
-    });
-    return {
-      totalNum: totalNum,
-      totalPrice: totalPrice };
-
-
-  },
-  // 是否选择了商品
-  isSel: function isSel(state) {
-    var isSel = false;
-    state.cartList.map(function (item) {
-      if (item.checked) {
-        isSel = true;
-      }
-    });
-    return isSel;
-  },
-
-  // 活动商品唯一选中可以结算
-  isActivityPay: function isActivityPay() {
-    var num = 0;
-    var activityNum = 0;
-    state.cartList.map(function (item) {
-      if (item.checked) {
-        num += 1;
-        if (item.cart_type === 'activity') {
-          activityNum += 1;
-        }
-      }
-    });
-    if (num === 1 && activityNum === 1 || activityNum === 0) {
-      return true;
-    }
-    return false;
-  } };var _default =
-
-
-
-{
-  state: state,
-  mutations: mutations,
-  actions: actions,
-  getters: getters };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 ]]);
