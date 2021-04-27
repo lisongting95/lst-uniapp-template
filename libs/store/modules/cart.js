@@ -20,7 +20,7 @@ const actions = {
 		state
 	}) {
 		console.log('$u -->',$u)
-		let res = await $u.m.config.getConfig()
+		let res = await $u.m.config.getConfig({scope:'api_config'})
 		console.log("action res -->",res)
 	},
 	
