@@ -20,9 +20,8 @@ Vue.use(model)
 import store from './libs/store/index.js'
 Vue.prototype.$store = store;
 
-console.log("??? -->",Vue.prototype.$u)
 //拦截器
-import httpInterceptor from './libs/interceptor/intercepter.js'
+import httpInterceptor from './libs/interceptor/interceptor.js'
 Vue.use(httpInterceptor)
 
 
