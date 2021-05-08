@@ -24,8 +24,13 @@ Vue.prototype.$store = store;
 import httpInterceptor from './libs/interceptor/interceptor.js'
 Vue.use(httpInterceptor)
 
+//工具
+import utils from "./libs/utils/utils.js"
+Vue.use(utils)
 
-
+//混入
+import mainMixin from "./libs/mixin/mainMixin.js"
+Vue.mixin(mainMixin)
 
 Vue.config.productionTip = false
 

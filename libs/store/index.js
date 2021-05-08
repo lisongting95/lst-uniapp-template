@@ -4,8 +4,8 @@ Vue.use(Vuex)
 
 
 //分块
-import cart from './modules/cart.js'
-
+import cart from "./modules/cart.js"
+import theme from "./modules/theme.js"
 
 //持久化
 let lifeData = {};
@@ -22,6 +22,7 @@ const store = new Vuex.Store({
 	//分块
 	modules: {
 		cart,
+		theme,
 	},
 	
 	//state

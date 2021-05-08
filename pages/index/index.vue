@@ -1,12 +1,26 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
+	<view>
+		<!-- 自定义顶部导航 -->
+		<u-navbar title="主页" titleSize="36" titleColor="#ffffff" backIconColor="#ffffff"
+			:background="{ background: mainTheme.uTypePrimary }" 
+			:borderBottom="false">
+		</u-navbar>
+		<view class="content">
+			<image class="logo" src="/static/logo.png"></image>
+			<view class="text-area">
+				<text class="title">{{title}}</text>
+			</view>
+			<u-button @click="goToTest">{{buttonName}}</u-button>
+			<view style="height: 10rpx;"></view>
+			<u-button  @click="onClick" 
+				:customStyle="{
+					background:mainTheme.uTypePrimary,
+					color:mainTheme.uWhite
+				}"
+			>
+				测试按钮
+			</u-button>
 		</view>
-		<u-button @click="goToTest">{{buttonName}}</u-button>
-		<view style="height: 10rpx;"></view>
-		<u-button  @click="onClick">测试按钮</u-button>
 	</view>
 </template>
 
@@ -16,6 +30,7 @@
 			return {
 				title: 'Hello',
 				buttonName:'button',
+				count:0
 			}
 		},
 		onLoad() {
@@ -25,9 +40,19 @@
 		},
 		methods: {
 			goToTest(){
-				this.$store.commit('setVuex',{name:'vuex_config',value:'321'})
-				console.log("store -->",this.$store.state.vuex_config)
+				
+				// vuex设值
+				// this.$store.commit('setVuex',{name:'vuex_config',value:'321'})
+				// console.log("store -->",this.$store.state.vuex_config)
+				
+				// 路由跳转
 				// this.$Router.push({name:"test"})
+				if(this.count%2==0){
+					this.$store.commit('changeTheme',{theme:'theme2'})
+				}else if(this.count%2==1){
+					this.$store.commit('changeTheme',{theme:'theme1'})
+				}
+				this.count++
 			},
 			onClick(){
 				this.$store.commit('commitCartNum',1111)
@@ -35,7 +60,7 @@
 				console.log("getters -->",this.$store.getters.testGetterYo)
 				this.$store.dispatch('testAction')
 			}
-		}
+		},
 	}
 </script>
 

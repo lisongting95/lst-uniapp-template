@@ -10,7 +10,7 @@
 				"metaTest":"in"
 			},
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationStyle": "custom"
 			}
 		},
 		{
