@@ -1,0 +1,257 @@
+page{background-color:$u-bg-color;}
+//宽度高度
+.w100{width: 100%;}
+.h100{height: 100%;}
+//超出部分文字隐藏（单行）
+.over-text-hidden-clip {white-space: nowrap;text-overflow:clip;overflow: hidden;};
+//超出部分文字隐藏（单行带省略号）
+.over-text-hidden {white-space: nowrap;text-overflow:ellipsis;overflow: hidden;};
+//文字加粗
+.bold {font-weight: bold;}
+.normal {font-weight: normal;}
+//定位
+.rel {position: relative;}
+.abs {position: absolute;}
+.fxd{position: fixed;}
+//字体大小
+.f-xxxs {font-size: 20rpx;}
+.f-xxs {font-size: 22rpx;}
+.f-xs {font-size: 24rpx;}
+.f-sm {font-size: 26rpx;}
+.f-base {font-size: 28rpx;}
+.f-lg {font-size: 30rpx;}
+.f-xl {font-size: 32rpx;}
+.f-xxl {font-size: 36rpx;}
+.f-xxxl {font-size: 48rpx;}
+//文字颜色
+.c-main, .c-333 {color:$u-main-color}          //#333333
+.c-content, .c-666 {color:$u-content-color}    //#666666
+.c-tips, .c-999 {color:$u-tips-color}          //#999999
+.c-border, .c-ddd {color:$u-border-color}      //#dddddd
+.c-light, .c-eee {color:$u-light-color}        //#eeeeee
+.c-bg, .c-f4 {color:$u-bg-color}               //#f4f4f4
+.c-primary, .c-blue {color:$u-type-primary}    //#2C6697
+.c-warning, .c-orange {color:$u-type-warning}  //#ff9c00
+.c-success, .c-green {color:$u-type-success}   //#2A7E35
+.c-error, .c-red {color:$u-type-error}         //#AD1000
+.c-fresh, .c-cyan {color:#27B3C5}              //#27B3C5
+.c-fff, .c-white {color:#FFFFFF}               //#FFFFFF
+//背景颜色
+.b-black, .b-000 {background-color: #000000;}             //#000000 
+.b-white, .b-fff {background-color: #FFFFFF}              //#ffffff
+.b-tips, .b-999 {background-color:$u-tips-color}          //#999999
+.b-border, .b-ddd {background-color:$u-border-color}      //#dddddd
+.b-light, .b-eee {background-color:$u-light-color}        //#eeeeee
+.b-bg, .bg {background-color:$u-bg-color}                 //#f4f4f4
+.b-primary, .b-blue {background-color:$u-type-primary}    //#2C6697
+.b-warning, .b-orange {background-color:$u-type-warning}  //#ff9c00
+.b-success, .b-green {background-color:$u-type-success}   //#2A7E35
+.b-error, .b-red {background-color:$u-type-error}         //#AD1000
+.b-fresh, .b-cyan {background-color:#27B3C5}              //#27B3C5
+//flex定位
+.flex {
+	/* #ifndef APP-NVUE */
+	display: flex;
+	/* #endif */
+	flex-direction: row;
+	align-items: center;
+}
+.flex-wrap {flex-wrap: wrap;}
+.flex-nowrap {flex-wrap: nowrap;}
+.flex-col-center {align-items: center;}
+.flex-col-top {align-items: flex-start;}
+.flex-col-bottom {align-items: flex-end;}
+.flex-row-center {justify-content: center;}
+.flex-row-left {justify-content: flex-start;}
+.flex-row-right {justify-content: flex-end;}
+.flex-row-between {justify-content: space-between;}
+.flex-row-around {justify-content: space-around;}
+.flex-self-top{align-self: flex-start;}
+.flex-self-center{align-self: center;}
+.flex-self-bottom{align-self: flex-end;}
+.flex-y {
+	/* #ifndef APP-NVUE */
+	display: flex;
+	/* #endif */
+	flex-direction: column;
+}
+// 定义flex等分
+@for $i from 0 through 12 {
+	.flex-#{$i} {
+		flex: $i;
+	}
+}
+// 文字对齐
+.tl {text-align: left;}
+.tc {text-align: center;}
+.tr {text-align: right;}
+
+// 定义字体(px)单位，小于20都为px单位字体
+@for $i from 9 to 20 {
+	.f-#{$i} {
+		font-size: $i + px;
+	}
+}
+// 定义字体(rpx)单位，大于或等于20的都为rpx单位字体
+@for $i from 20 through 40 {
+	.f-#{$i} {
+		font-size: $i + rpx;
+	}
+}
+// 圆角，历遍1-80
+@for $i from 0 through 80 {
+	// 只要双数和能被5除尽的数
+	@if $i % 2 == 0 or $i % 5 == 0 {
+		// 得出：u-margin-30或者u-m-30
+		.rd#{$i} {
+			border-radius: $i + rpx!important;
+		}
+	}
+}
+// 圆角左下，历遍1-80
+@for $i from 0 through 80 {
+	// 只要双数和能被5除尽的数
+	@if $i % 2 == 0 or $i % 5 == 0 {
+		// 得出：u-margin-30或者u-m-30
+		.rdbl#{$i} {
+			border-bottom-left-radius: $i + rpx!important;
+		}
+	}
+}
+// 圆角右下，历遍1-80
+@for $i from 0 through 80 {
+	// 只要双数和能被5除尽的数
+	@if $i % 2 == 0 or $i % 5 == 0 {
+		// 得出：u-margin-30或者u-m-30
+		.rdbr#{$i} {
+			border-bottom-right-radius: $i + rpx!important;
+		}
+	}
+}
+
+
+
+// 定义内外边距，历遍1-80
+@for $i from 0 through 80 {
+	// 只要双数和能被5除尽的数
+	@if $i % 2 == 0 or $i % 5 == 0 {
+		// 得出：u-margin-30或者u-m-30
+		.m#{$i} {
+			margin: $i + rpx!important;
+		}
+		
+		// 得出：u-margin-lr-30或者u-m-lr-30
+		.mlr#{$i} {
+			margin-left: $i + rpx!important;
+			margin-right: $i + rpx!important;
+		}
+		
+		// 得出：u-margin-tb-30或者u-m-tb-30
+		.mtb#{$i} {
+			margin-top: $i + rpx!important;
+			margin-bottom: $i + rpx!important;
+		}
+		
+		// 得出：u-padding-30或者u-p-30
+		.p#{$i} {
+			padding: $i + rpx!important;
+		}
+		
+		// 得出：u-padding-lr-30或者u-p-lr-30
+		.plr#{$i} {
+			padding-left: $i + rpx!important;
+			padding-right: $i + rpx!important;
+		}
+		
+		// 得出：u-padding-tb-30或者u-p-tb-30
+		.ptb#{$i} {
+			padding-top: $i + rpx!important;
+			padding-bottom: $i + rpx!important;
+		}
+		
+		@each $short, $long in l left, t top, r right, b bottom {
+			// 缩写版，结果如： u-m-l-30
+			// 定义外边距
+			.m#{$short}#{$i} {
+				margin-#{$long}: $i + rpx!important;
+			}
+			
+			// 定义内边距
+			.p#{$short}#{$i} {
+				padding-#{$long}: $i + rpx!important;
+			}
+		}
+	}
+}
+
+
+//等级文字颜色
+.c-ji-A{color:#0F5C22}
+.c-ji-B{color:#1B7013}
+.c-ji-C{color:#709136}
+.c-ji-D{color:#A3A323}
+.c-ji-E{color:#ABA421}
+
+//等级背景颜色
+.b-ji-A{background-color:#0F5C22}
+.b-ji-B{background-color:#1B7013}
+.b-ji-C{background-color:#709136}
+.b-ji-D{background-color:#A3A323}
+.b-ji-E{background-color:#ABA421}
+
+
+//超细边框
+.border-all{position:relative;
+	&:after{
+		content: " ";
+		display: block;
+		width: 200%;
+		height: 200%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: scale(0.5);
+		transform-origin: 0 0;
+		box-sizing: border-box;
+		z-index: 1;
+		pointer-events: none;
+		border: 2rpx solid #EEEEEE;
+	}
+}
+//超细底边
+.border-b{position:relative;
+	&:after{
+		content: " ";
+		display: block;
+		width: 200%;
+		height: 200%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		transform: scale(0.5);
+		transform-origin: 0 0;
+		box-sizing: border-box;
+		z-index: 1;
+		pointer-events: none;
+		border-bottom: 2rpx solid #EEEEEE;
+	}
+}
+
+
+
+//右三角形
+.triangle-right {
+	width: 0;
+	height: 0;
+	border-bottom: 6rpx solid transparent;
+	border-top: 6rpx solid transparent;
+	border-left: 8rpx solid #FFFFFF;
+}
+
+//文字划线
+.txtdec-thr{
+	text-decoration: line-through;
+}
+.txtdec-und{
+	text-decoration: underline;
+}

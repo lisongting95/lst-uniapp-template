@@ -22,6 +22,16 @@
 			"style": {
 				"navigationBarTitleText": "test"
 			}
+		},
+		{
+			"path": "pages/login/login",
+			"name": "login",
+			"meta": {
+				"metaTest":"login"
+			},
+			"style": {
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"globalStyle": {

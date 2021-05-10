@@ -20,6 +20,14 @@
 			>
 				测试按钮
 			</u-button>
+			<u-button  @click="goToLogin"
+				:customStyle="{
+					background:mainTheme.uTypePrimary,
+					color:mainTheme.uWhite
+				}"
+			>
+				跳去登录页
+			</u-button>
 		</view>
 	</view>
 </template>
@@ -45,8 +53,7 @@
 				// this.$store.commit('setVuex',{name:'vuex_config',value:'321'})
 				// console.log("store -->",this.$store.state.vuex_config)
 				
-				// 路由跳转
-				// this.$Router.push({name:"test"})
+				
 				if(this.count%2==0){
 					this.$store.commit('changeTheme',{theme:'theme2'})
 				}else if(this.count%2==1){
@@ -63,6 +70,10 @@
 					password:'fyc1990',
 					type:'password'
 				})
+			},
+			goToLogin(){
+				// 路由跳转
+				this.$Router.push({name:"login"})
 			}
 		},
 	}
