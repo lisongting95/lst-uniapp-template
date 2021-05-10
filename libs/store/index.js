@@ -6,6 +6,7 @@ Vue.use(Vuex)
 //分块
 import cart from "./modules/cart.js"
 import theme from "./modules/theme.js"
+import user from "./modules/user.js"
 
 //持久化
 let lifeData = {};
@@ -21,8 +22,9 @@ let saveStateKeys = [
 const store = new Vuex.Store({
 	//分块
 	modules: {
-		cart,
+		user,
 		theme,
+		cart,
 	},
 	
 	//state

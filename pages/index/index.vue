@@ -55,10 +55,14 @@
 				this.count++
 			},
 			onClick(){
-				this.$store.commit('commitCartNum',1111)
-				console.log("cartNum -->",this.$store.state.cart.cartNum)
-				console.log("getters -->",this.$store.getters.testGetterYo)
-				this.$store.dispatch('testAction')
+				// this.$store.commit('commitCartNum',1111)
+				// console.log("cartNum -->",this.$store.state.cart.cartNum)
+				// console.log("getters -->",this.$store.getters.testGetterYo)
+				this.$store.dispatch('login',{
+					mobile:'18669010827',
+					password:'fyc1990',
+					type:'password'
+				})
 			}
 		},
 	}

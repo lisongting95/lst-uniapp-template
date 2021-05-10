@@ -12,6 +12,10 @@ Vue.use(routerGuard)   // 路由守卫：登录用户的权限控制，以及全
 import uView from "uview-ui"
 Vue.use(uView)
 
+//工具
+import utils from "./libs/utils/utils.js"
+Vue.use(utils)
+
 //api
 import model from './model/model.js'
 Vue.use(model)
@@ -24,9 +28,7 @@ Vue.prototype.$store = store;
 import httpInterceptor from './libs/interceptor/interceptor.js'
 Vue.use(httpInterceptor)
 
-//工具
-import utils from "./libs/utils/utils.js"
-Vue.use(utils)
+
 
 //混入
 import mainMixin from "./libs/mixin/mainMixin.js"
