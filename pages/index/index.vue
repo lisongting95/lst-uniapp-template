@@ -10,7 +10,7 @@
 			<view class="text-area">
 				<text class="title">{{title}}</text>
 			</view>
-			<u-button @click="goToTest">{{buttonName}}</u-button>
+			<u-button @click="changeTheme">改变主题</u-button>
 			<view style="height: 10rpx;"></view>
 			<u-button  @click="onClick" 
 				:customStyle="{
@@ -18,7 +18,7 @@
 					color:mainTheme.uWhite
 				}"
 			>
-				测试按钮
+				vuex测试
 			</u-button>
 			<u-button  @click="goToLogin"
 				:customStyle="{
@@ -26,7 +26,15 @@
 					color:mainTheme.uWhite
 				}"
 			>
-				跳去登录页
+				跳转登录
+			</u-button>
+			<u-button  @click="getPagingData"
+				:customStyle="{
+					background:mainTheme.uTypePrimary,
+					color:mainTheme.uWhite
+				}"
+			>
+				获取分页
 			</u-button>
 		</view>
 	</view>
@@ -47,13 +55,7 @@
 			console.log("store -->",this.$store.state.vuex_config)
 		},
 		methods: {
-			goToTest(){
-				
-				// vuex设值
-				// this.$store.commit('setVuex',{name:'vuex_config',value:'321'})
-				// console.log("store -->",this.$store.state.vuex_config)
-				
-				
+			changeTheme(){
 				if(this.count%2==0){
 					this.$store.commit('changeTheme',{theme:'theme2'})
 				}else if(this.count%2==1){
@@ -62,19 +64,24 @@
 				this.count++
 			},
 			onClick(){
-				// this.$store.commit('commitCartNum',1111)
-				// console.log("cartNum -->",this.$store.state.cart.cartNum)
-				// console.log("getters -->",this.$store.getters.testGetterYo)
-				this.$store.dispatch('login',{
-					mobile:'18669010827',
-					password:'fyc1990',
-					type:'password'
-				})
+				this.$store.commit('commitCartNum',1111)
+				console.log("cartNum -->",this.$store.state.cart.cartNum)
+				console.log("getters -->",this.$store.getters.testGetterYo)
 			},
 			goToLogin(){
 				// 路由跳转
 				this.$Router.push({name:"login"})
-			}
+			},
+			async getPagingData(){
+				let params = {
+					state:'all',
+					keyword:'',
+					page_size:10,
+				}
+				await this.mixin_newPaging('product','getProPaging',params)
+				await this.mixin_getListData()
+				console.log('pagingData -->',this.mixin_listData)
+			},
 		},
 	}
 </script>

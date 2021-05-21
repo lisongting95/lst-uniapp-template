@@ -33,6 +33,9 @@ Vue.use(httpInterceptor)
 //混入
 import mainMixin from "./libs/mixin/mainMixin.js"
 Vue.mixin(mainMixin)
+import pagingMixin from "./libs/mixin/pagingMixin.js"
+Vue.mixin(pagingMixin)
+
 
 Vue.config.productionTip = false
 

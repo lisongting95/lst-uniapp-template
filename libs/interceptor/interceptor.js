@@ -1,6 +1,7 @@
 import config from "@/libs/config/api"
 import {router} from '@/libs/router/router.js'
-import base64 from '../utils/base64/base64.js'
+import store from '@/libs/store/index.js'
+import base64Libs from "@/libs/utils/base64/base64"
 
 const install = (Vue) => {
 	Vue.use(router)
@@ -70,8 +71,10 @@ const install = (Vue) => {
 // 拼接请求头
 const makeAuthentication = (appId,access_token,uid) => {
 	let authentication =''
+	
 	try {
-		authentication = 'USERID '+ base64.encode(appId+':'+access_token+':'+uid)
+		let token = store.getters.getToken
+		authentication = 'USERID '+ base64Libs.Base64.encode(token.client.appid+':'+token.access_token+':'+token.client.uid)
 	}catch(e){
 		console.log('拼接请求头 Authentication 失败')
 		console.log(e)

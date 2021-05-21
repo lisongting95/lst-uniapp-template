@@ -155,46 +155,50 @@ export default {
 	},
 	methods: {
 		async onLogin() {
-			
-			//密码登录
-			this.$refs.uForm.validate(async valid => {
-				if (valid) {
-					//如果表单验证通过
+			this.$store.dispatch('login',{
+				mobile:'18669010827',
+				password:'fyc1990',
+				type:'password'
+			})
+			// //密码登录
+			// this.$refs.uForm.validate(async valid => {
+			// 	if (valid) {
+			// 		//如果表单验证通过
 					
-					// #ifdef APP-PLUS
-					//检查是否勾选隐私政策
-					if(!this.agreePrivacyPolicy){
-						this.$u.toast('请勾选页面协议')
-						this.joggle = true
-						setTimeout(()=>{
-							this.joggle = false
-						},700)
-						return
-					}
-					// #endif
+			// 		// #ifdef APP-PLUS
+			// 		//检查是否勾选隐私政策
+			// 		if(!this.agreePrivacyPolicy){
+			// 			this.$u.toast('请勾选页面协议')
+			// 			this.joggle = true
+			// 			setTimeout(()=>{
+			// 				this.joggle = false
+			// 			},700)
+			// 			return
+			// 		}
+			// 		// #endif
 					
-					//密码登录
-					if (this.formData.type == 'password') {
-						this.isLoading = true
-						await this.$u.to(this.$u.m.login.login(this.formData))
-						this.isLoading = false
-						if (this.$u.state.vuex_token) {
-							this.$Router.replaceAll({ name: this.$Route.query.redirect })
-						}
-					}
+			// 		//密码登录
+			// 		if (this.formData.type == 'password') {
+			// 			this.isLoading = true
+			// 			await this.$u.to(this.$u.m.login.login(this.formData))
+			// 			this.isLoading = false
+			// 			if (this.$u.state.vuex_token) {
+			// 				this.$Router.replaceAll({ name: this.$Route.query.redirect })
+			// 			}
+			// 		}
 					
-					//验证码登录
-					if (this.formData.type == 'sms') {
-						let [err,res] = await this.$u.to(this.$u.m.smsCode.requestSmsCode({ type: 1, mobile: this.formData.mobile }))
-						this.$Router.push({ name: 'code-login', params: {
-								mobile: this.formData.mobile,
-								redirect: this.$Route.query.redirect,
-								ttl:res?res.ttl:60,
-								userInfo:this.userInfo
-							}})
-					}
-				}
-			});
+			// 		//验证码登录
+			// 		if (this.formData.type == 'sms') {
+			// 			let [err,res] = await this.$u.to(this.$u.m.smsCode.requestSmsCode({ type: 1, mobile: this.formData.mobile }))
+			// 			this.$Router.push({ name: 'code-login', params: {
+			// 					mobile: this.formData.mobile,
+			// 					redirect: this.$Route.query.redirect,
+			// 					ttl:res?res.ttl:60,
+			// 					userInfo:this.userInfo
+			// 				}})
+			// 		}
+			// 	}
+			// });
 		},
 		
 		//切换登录方式
@@ -344,7 +348,19 @@ export default {
 			}
 			console.log('agreePrivacyPolicy -->',this.agreePrivacyPolicy)
 		}
-	}
+	},
+	computed: {
+		token() {
+			return this.$store.getters.getToken 
+		}
+	},
+	watch: {
+		token(newValue, oldValue) {
+			console.log("new Value -->",newValue)
+			console.log("old Value -->",oldValue)
+			this.$Router.back(1)
+		}
+	},
 };
 </script>
 
